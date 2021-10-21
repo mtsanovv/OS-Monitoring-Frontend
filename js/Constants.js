@@ -60,6 +60,15 @@ const ROUTING_METADATA_CONFIG = {
     }
 };
 
+const NAV_CONTENT = [
+    {
+        id: NAV_STATS,
+        route: ROUTING_METADATA_CONFIG.routing.routes[NAV_STATS].pattern,
+        icon: "sap-icon://performance",
+        text: "Stats"
+    }
+];
+
 const THEMES = [
     {
         name: "SAP Fiori 3",
