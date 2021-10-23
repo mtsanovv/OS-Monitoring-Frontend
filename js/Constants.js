@@ -67,7 +67,13 @@ const NAV_CONTENT = [
         route: ROUTING_METADATA_CONFIG.routing.routes[NAV_STATS].pattern,
         icon: "sap-icon://performance",
         text: OS_MONITORING_PAGE_STATS_TITLE
-    }
+    },
+    {
+        id: NAV_USERS_LISTING,
+        route: ROUTING_METADATA_CONFIG.routing.routes[NAV_USERS_LISTING].pattern,
+        icon: "sap-icon://collaborate",
+        text: OS_MONITORING_PAGE_USERS_LISTING_TITLE
+    },
 ];
 
 const THEMES = [
