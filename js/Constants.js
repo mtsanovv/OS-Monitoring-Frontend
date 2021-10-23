@@ -1,9 +1,10 @@
 const STATS_PATH = '/stats';
 const USERS_PATH = '/users';
 
-const STATS_POLL_INTERVAL = 3000;
+const STATS_POLL_INTERVAL = 2000;
+const STATS_POLL_INTERVAL_TEXT = "Refreshing every " + Math.ceil(STATS_POLL_INTERVAL / 1000) + "s";
 
-const STATS_UNAVAILABLE = "Stats unavailable";
+const STATUS_UNAVAILABLE = "Not available";
 
 const OS_MONITORING_APP = 'OSMonitoring.App';
 const OS_MONITORING_COMPONENT = 'OSMonitoring';
@@ -65,7 +66,7 @@ const NAV_CONTENT = [
         id: NAV_STATS,
         route: ROUTING_METADATA_CONFIG.routing.routes[NAV_STATS].pattern,
         icon: "sap-icon://performance",
-        text: "Stats"
+        text: OS_MONITORING_PAGE_STATS_TITLE
     }
 ];
 
