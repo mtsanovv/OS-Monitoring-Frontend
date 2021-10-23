@@ -15,8 +15,8 @@ sap.ui.define([
                 thisController.getRouter().navTo(NAV_HOME);
                 // watch for route changes
                 thisController.getRouter().attachRouteMatched(thisController.onRouteChange.bind(thisController));
-                // switch to the stats view when all views have been created
-                thisController.getRouter().navTo(NAV_STATS);
+                // return to the previous view when all views have been created
+                thisController.navToPrevious(false);
             });
         },
 
@@ -39,6 +39,7 @@ sap.ui.define([
 
         createViews: async function() {
             this.getApp().addPage((await sap.ui.core.mvc.JSView.create({id: OS_MONITORING_VIEW_STATS, viewName: OS_MONITORING_VIEW_STATS})));
+            this.getApp().addPage((await sap.ui.core.mvc.JSView.create({id: OS_MONITORING_VIEW_USERS_LISTING, viewName: OS_MONITORING_VIEW_USERS_LISTING})));
         },
     
         onRouteChange: function (oEvent) {
@@ -53,6 +54,14 @@ sap.ui.define([
                     this.getApp().setBusy(false);
                     this.getView().changeSelectedNavKey(routeName);
                     this.changeHTMLPageTitle(OS_MONITORING_PAGE_STATS_TITLE);
+                    this.pushCurrentRouteToRouteHistory();
+                    break;
+                case NAV_USERS_LISTING:
+                    this.getApp().setBusy(true);
+                    this.getApp().to(OS_MONITORING_VIEW_USERS_LISTING);
+                    this.getApp().getCurrentPage().loadPage();
+                    this.getView().changeSelectedNavKey(routeName);
+                    this.changeHTMLPageTitle(OS_MONITORING_PAGE_USERS_LISTING_TITLE);
                     this.pushCurrentRouteToRouteHistory();
                     break;
             }

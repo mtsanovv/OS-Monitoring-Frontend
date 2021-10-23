@@ -45,10 +45,12 @@ sap.ui.define([
             return router.getRouteInfoByHash(currentHash).arguments;
         },
 
-        navToPrevious: function() {
+        navToPrevious: function(removeLastRoute = true) {
             const mainModel = this.getFirstChildViewController().getOwnerComponent().getModel();
             const routeHistory = mainModel.getProperty("/routeHistory");
-            routeHistory.splice(routeHistory.length - 1, 1); // remove the current route from the route history
+            if(removeLastRoute) {
+                routeHistory.splice(routeHistory.length - 1, 1); // remove the current route from the route history
+            }
             const prevRoute = routeHistory.pop();
             let route = NAV_STATS;
             let args;
