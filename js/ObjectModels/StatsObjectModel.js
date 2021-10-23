@@ -1,12 +1,7 @@
 class StatsObjectModel {
     constructor(json) {
         this.message = json.message;
-        this.stats = {
-            cpu: json.cpu,
-            ram: json.ram,
-            swap: json.swap,
-            disk: json.disk
-        };
+        this.stats = json.stats;
         this.isStatsResponse = 0;
     }
 

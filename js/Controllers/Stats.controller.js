@@ -31,7 +31,7 @@ sap.ui.define([
                 type: 'GET',
                 url: CONFIG.API_BASE_URL + STATS_PATH,
                 success: function (result) {
-                    const statsObjectModel = new StatsObjectModel(result);
+                    const statsObjectModel = new StatsObjectModel({ stats: result });
                     statsObjectModel.setAsStatsResponse();
                     thisController.passModel(statsObjectModel);
                     if(thisController.getCurrentRouteName() == NAV_STATS) {
