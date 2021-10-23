@@ -1,8 +1,7 @@
 const STATS_PATH = '/stats';
 const USERS_PATH = '/users';
 
-const STATS_POLL_INTERVAL = 2000;
-const STATS_POLL_INTERVAL_TEXT = "Refreshing every " + Math.ceil(STATS_POLL_INTERVAL / 1000) + "s";
+const STATS_POLL_INTERVAL_TEXT = "Refreshing every 2s";
 
 const STATUS_UNAVAILABLE = "Not available";
 

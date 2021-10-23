@@ -36,7 +36,7 @@ sap.ui.define([
                     thisController.passModel(statsObjectModel);
                     if(thisController.getCurrentRouteName() == NAV_STATS) {
                         // continue polling the os stats only if the user is currently on the stats page
-                        setTimeout(() => { thisController.pollOsStats(); }, STATS_POLL_INTERVAL);
+                        setTimeout(() => { thisController.pollOsStats(); }, 1);
                     }
                 },
                 error: function (xhr, status, error)

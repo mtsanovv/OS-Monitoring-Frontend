@@ -21,7 +21,7 @@ sap.ui.jsview(OS_MONITORING_VIEW_USERS_LISTING, {
         const errorDialog = new sap.m.Dialog('getUsersErrorDialog', { title: "An Error has Occurred", titleAlignment: sap.m.TitleAlignment.Center, type: sap.m.DialogType.Message });
         const errorMessageStrip = new sap.m.MessageStrip('getUsersDialogErrorStrip', { type: sap.ui.core.MessageType.Error, showIcon: true });
         errorMessageStrip.addStyleClass("sapUiResponsiveMargin");
-        const errorMessageDialogButton = new sap.m.Button('getUsersErrorDialogButton', { text: 'Continue to stats page' , type: sap.m.ButtonType.Emphasized });
+        const errorMessageDialogButton = new sap.m.Button('getUsersErrorDialogButton', { text: 'Continue' , type: sap.m.ButtonType.Emphasized });
         errorMessageDialogButton.attachPress(() => {
             errorDialog.close();
             oController.navigateToStats();

@@ -1,3 +1,3 @@
 const CONFIG = {
-    API_BASE_URL: "http://localhost/api/v1"
+    API_BASE_URL: "http://osmonitoring.localhost/api/v1"
 };
