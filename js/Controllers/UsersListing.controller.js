@@ -40,14 +40,14 @@ sap.ui.define([
                         deleteUserDialog.setBusy(false);
                     }
 
-                    if(xhr.readyState != 4) {
+                    if(xhr.readyState != 4 || xhr.status != 400) {
                         // network error
                         thisController.osMonitoringNotAvailable("the API has returned an unexpected response or might be down");
                         // we need to get the new model after the os monitoring is not available message has been passed
                         thisController.getView().getModel().getProperty("/obj").setShouldNotFireAfterCloseDeleteDialog(true);
                         deleteUserDialog.close();
                     } else {
-                        // http error
+                        // http error is 400 bad request
                         const result = JSON.parse(xhr.responseText);
                         modelObj.setServerContactErrorMessage(result.exception);
                         thisController.getView().showDeletionErrorMessage();
@@ -63,12 +63,12 @@ sap.ui.define([
             let usersShown = 0;
             for(const columnListItem of tableItems) {
                 const cells = columnListItem.getCells();
-                const taskData = [];
+                const userData = [];
                 for(let i = 0; i < cells.length - 1; i++) {
-                    taskData.push(cells[i].getText());
+                    userData.push(cells[i].getText());
                 }
                 let showRow = false;
-                for(const data of taskData) {
+                for(const data of userData) {
                     if(data.match(new RegExp("(" + query + ")+", "i"))) {
                         showRow = true;
                         usersShown++;

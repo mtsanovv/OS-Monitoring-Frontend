@@ -274,13 +274,13 @@ sap.ui.jsview(OS_MONITORING_VIEW_USERS_LISTING, {
 
     hideLoading: function() {
         const oController = this.getController();
-        const ongoingTaskPage = this.getController().globalById(OS_MONITORING_PAGE_USERS_LISTING);
+        const currentPage = this.getController().globalById(OS_MONITORING_PAGE_USERS_LISTING);
         // mark the app as not busy and show the page
         if(oController.getApp().getBusy()) {
             oController.getApp().setBusy(false);
         }
-        if(!ongoingTaskPage.getVisible()) {
-            ongoingTaskPage.setVisible(true);
+        if(!currentPage.getVisible()) {
+            currentPage.setVisible(true);
         }
     }
 });

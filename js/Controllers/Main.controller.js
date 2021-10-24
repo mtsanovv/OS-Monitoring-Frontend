@@ -38,8 +38,9 @@ sap.ui.define([
         },
 
         createViews: async function() {
-            this.getApp().addPage((await sap.ui.core.mvc.JSView.create({id: OS_MONITORING_VIEW_STATS, viewName: OS_MONITORING_VIEW_STATS})));
-            this.getApp().addPage((await sap.ui.core.mvc.JSView.create({id: OS_MONITORING_VIEW_USERS_LISTING, viewName: OS_MONITORING_VIEW_USERS_LISTING})));
+            this.getApp().addPage((await sap.ui.core.mvc.JSView.create({ id: OS_MONITORING_VIEW_STATS, viewName: OS_MONITORING_VIEW_STATS })));
+            this.getApp().addPage((await sap.ui.core.mvc.JSView.create({ id: OS_MONITORING_VIEW_USERS_LISTING, viewName: OS_MONITORING_VIEW_USERS_LISTING })));
+            this.getApp().addPage((await sap.ui.core.mvc.JSView.create({ id: OS_MONITORING_VIEW_CREATE_USER, viewName: OS_MONITORING_VIEW_CREATE_USER })));
         },
     
         onRouteChange: function (oEvent) {
@@ -62,6 +63,14 @@ sap.ui.define([
                     this.getApp().getCurrentPage().loadPage();
                     this.getView().changeSelectedNavKey(routeName);
                     this.changeHTMLPageTitle(OS_MONITORING_PAGE_USERS_LISTING_TITLE);
+                    this.pushCurrentRouteToRouteHistory();
+                    break;
+                case NAV_CREATE_USER:
+                    this.getApp().setBusy(true);
+                    this.getApp().to(OS_MONITORING_VIEW_CREATE_USER);
+                    this.getApp().getCurrentPage().loadPage(NAV_CREATE_USER);
+                    this.getView().changeSelectedNavKey(routeName);
+                    this.changeHTMLPageTitle(OS_MONITORING_PAGE_CREATE_USER_TITLE);
                     this.pushCurrentRouteToRouteHistory();
                     break;
             }

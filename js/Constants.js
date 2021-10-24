@@ -73,6 +73,12 @@ const NAV_CONTENT = [
         icon: "sap-icon://collaborate",
         text: OS_MONITORING_PAGE_USERS_LISTING_TITLE
     },
+    {
+        id: NAV_CREATE_USER,
+        route: ROUTING_METADATA_CONFIG.routing.routes[NAV_CREATE_USER].pattern,
+        icon: "sap-icon://add-employee",
+        text: OS_MONITORING_PAGE_CREATE_USER_TITLE
+    }
 ];
 
 const THEMES = [
