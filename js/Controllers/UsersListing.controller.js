@@ -57,7 +57,7 @@ sap.ui.define([
         },
 
         onSearchUsersListing: function(oEvent) {
-			const query = oEvent.getSource().getValue();
+			const query = this.escapeRegex(oEvent.getSource().getValue());
             const table = this.globalById("usersListingTable");
             const tableItems = table.getItems();
             let usersShown = 0;

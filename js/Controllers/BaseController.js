@@ -92,6 +92,10 @@ sap.ui.define([
             if(oSource.getValueState() == sap.ui.core.ValueState.Error) {
                 oSource.setValueState(sap.ui.core.ValueState.None);
             }
+        },
+
+        escapeRegex: function(text) {
+            return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
         }
     });
 });
